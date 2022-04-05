@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Membri</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body style="color: rgb(33, 37, 41);">
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1"><i class="fa fa-music" style="font-size: 25px;"></i>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/}" style="font-size: 15px;">ACASA</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/formatii}" style="font-size: 15px;">FORMATII</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/contracts}" style="font-size: 15px;">CONTRACTE</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/membri}" style="font-size: 15px;">MEMBRI</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="page blog-post-list">
+    <section class="clean-block clean-blog-list dark" style="padding: 0;">
+        <div class="container">
+            <div class="block-heading" style="padding-top: 40px;">
+                <h2 class="text-black-50" style="padding-bottom: 2.5px;">MEMBRI</h2>
+                <a class="btn btn-dark" style="margin-bottom: 12.5px" th:href="@{/membri/adaugare}">ADAUGARE</a>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-center">NUME</th>
+                            <th class="text-center">PRENUME</th>
+                            <th class="text-center">DATA NASTERII</th>
+                            <th class="text-center">NATIONALITATE</th>
+                            <th class="text-center">AVERE</th>
+                            <th class="text-center">EDITARE</th>
+                            <th class="text-center">STERGERE</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="membru : ${membriList}">
+                            <tr>
+                                <td>[[${membru.nume}]]</td>
+                                <td>[[${membru.prenume}]]</td>
+                                <td>[[${membru.data_nasterii}]]</td>
+                                <td>[[${membru.nationalitate}]]</td>
+                                <td>[[${membru.avere}]]</td>
+                                <td><a th:href="@{'/membri/editare/'+ ${membru.id}}">Editeaza</a></td>
+                                <td><a th:href="@{'/membri/delete/'+ ${membru.id}}">Sterge</a></td>
+                            </tr>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+
+</html>

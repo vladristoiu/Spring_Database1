@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Adaugare membru</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1"><i class="fa fa-music" style="font-size: 25px;"></i>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/}" style="font-size: 15px;">ACASA</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/formatii}" style="font-size: 15px;">FORMATII</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/contracts}" style="font-size: 15px;">CONTRACTE</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/membri}" style="font-size: 15px;">MEMBRI</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="page contact-us-page"></main>
+<section class="clean-block clean-form dark">
+    <div class="container">
+        <div class="block-heading">
+            <h2 class="text-info">ADAUGARE MEMBRU</h2>
+        </div>
+        <form class="shadow-lg" th:action="@{/membri/save}" method="post" th:object="${membru}">
+            <input type="hidden" th:field="*{id}">
+            <div class="mb-3"><label class="form-label" >Nume</label><input th:field="*{nume}" class="form-control" type="text"></div>
+            <div class="mb-3"><label class="form-label">Prenume</label><input th:field="*{prenume}" class="form-control" type="text"></div>
+            <div class="mb-3"><label class="form-label" >Data nasterii</label><input th:field="*{data_nasterii}" class="form-control"></div>
+            <div class="mb-3"><label class="form-label" >Nationalitate</label><input th:field="*{nationalitate}" class="form-control"></div>
+            <div class="mb-3"><label class="form-label" >Avere</label><input th:field="*{avere}" class="form-control" type="number" step="0.1"></div>
+            <div class="mb-3"><button class="btn btn-primary" type="submit">Adaugare</button></div>
+        </form>
+    </div>
+</section>
+</body>
+
+</html>
